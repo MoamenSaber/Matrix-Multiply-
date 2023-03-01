@@ -1,0 +1,20 @@
+M1 = [[1,2,3] , [4,5,6]]
+M2 = [[1,2] , [3,4] , [5,6]]
+    
+def mul_Matrix(r,c):
+    assert len(M1) == len(M2[0]) , "M1 Columns must = M2 Rows"
+    
+    return sum ([i*j for i,j in zip(r,c)])
+    #return [i*j for i,j in zip(r,c)]
+
+def Matrix_Mul_Matrix(M1,M2):
+    M3 = []
+    res = []
+    for i in range(len(M1)):
+        for j in range (len(M2[0])):
+            for k in range (len(M2)):
+                M3.append(M2[k][j])
+            res.append(mul_Matrix(M1[i] , M3)) 
+            M3.clear()
+    return res
+Matrix_Mul_Matrix(M1,M2)
